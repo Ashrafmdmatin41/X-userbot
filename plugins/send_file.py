@@ -49,50 +49,41 @@ async def callback_handle(client, query):
 
     elif query.data == 'solo_epi_1':
         user_id = query.from_user.id
-        buttons = [[   
+
           await client.send_document(user_id,"BQACAgQAAxkBAAMeZfxPpdlbuRgrJMpNcRGpEuYAAVm1AAJFEQACfxHgUOhCxmEDyOpqHgQ")
           
     elif query.data == 'solo_epi_2':
-        user_id = query.from_user.id
-        buttons = [[   
+        user_id = query.from_user.id 
           await client.send_document(user_id,"BQACAgQAAxkBAAMgZfxTEs1TzQRgvnrT8-48NpVqhzsAAmQSAAK1eBlRdB2soOtgpBgeBA")
 
     elif query.data == 'solo_epi_3':
-        user_id = query.from_user.id
-        buttons = [[   
+        user_id = query.from_user.id   
           await client.send_document(user_id,"BQACAgQAAxkBAAMiZfxTI5OSpkjBPMyHp1F5Iu-lp68AAkkSAAIBjWBR1tvEDjNCeC8eBA")
           
     elif query.data == 'solo_epi_4':
-        user_id = query.from_user.id
-        buttons = [[   
+        user_id = query.from_user.id  
           await client.send_document(user_id,"BQACAgQAAxkBAAMkZfxTLXKk1S_gZB_agDSSrhvQBEcAApcUAALka6hRDc6CLe_1GdEeBA")      
 
     elif query.data == 'solo_epi_5':
         user_id = query.from_user.id
-        buttons = [[   
           await client.send_document(user_id,"BQACAgQAAxkBAAMmZfxTOUa5oneBkqrmC3QHXOi-lsoAAvoTAALUafhR8Z9cx1d6MG8eBA")
           
     elif query.data == 'solo_epi_6':
-        user_id = query.from_user.id
-        buttons = [[   
+        user_id = query.from_user.id 
           await client.send_document(user_id,"BQACAgQAAxkBAAMoZfxTRT8cRRYCCCF8GgKGpvNX0lIAAiYSAAKfwkBS5vhn5yY2Bt8eBA")
 
     elif query.data == 'solo_epi_7':
-        user_id = query.from_user.id
-        buttons = [[   
+        user_id = query.from_user.id 
           await client.send_document(user_id,"BQACAgQAAxkBAAMqZfxTTmBJf5TF5aDbAmsj7VObfa8AAhwSAAKVOYhSd8rCjBsll98eBA")
           
     elif query.data == 'solo_epi_8':
-        user_id = query.from_user.id
-        buttons = [[   
+        user_id = query.from_user.id  
           await client.send_document(user_id,"BQACAgQAAxkBAAMsZfxTWYFmcvmhX-Eu_zbuC4JDzGMAAt0SAAIxQCBTqO-zrtoZde4eBA")           
       
      elif query.data == 'solo_epi_9':
         user_id = query.from_user.id
-        buttons = [[   
           await client.send_document(user_id,"BQACAgQAAxkBAAMuZfxTZFIORGsxNMK_EaflUUfnlecAAhERAAKr_2FTnyGryxdqCUAeBA")
   
      elif query.data == 'solo_epi_10':
         user_id = query.from_user.id
-        buttons = [[   
           await client.send_document(user_id,"BQACAgQAAxkBAAMwZfxTcK2BI-YCT3DP-gABQh2s4J89AALDEAACIe65U8gMsXEoxOI6HgQ")                   
