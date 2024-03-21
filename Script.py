@@ -33,4 +33,5 @@ Mʏ Nᴀᴍᴇ Is <a href=https://t.me/{}>{}</a>. ɪ ᴀᴍ ᴀ sᴘᴇᴄɪᴀ�
     STATUS_TXT =  """<b>◉ ᴛᴏᴛᴀʟ ᴜꜱᴇʀꜱ: <code>{}</code></b>
 ◉ ᴛᴏᴛᴀʟ ᴄʜᴀᴛꜱ: <code>{}</code>"""
 
-    SERIES_CHECK_TXT = """<code>solo leveling</code>"""   
+    SERIES_CHECK_TXT = """Series that saved in my db:
+<code>solo leveling</code>"""   
