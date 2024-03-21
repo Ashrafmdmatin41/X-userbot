@@ -8,7 +8,7 @@ async def send_series(client, message):
     name = name.replace("/"," ").replace("."," ").replace(",", " ").replace("''"," ").replace("'"," ").replace("[]"," ").replace("{}"," ").replace("()"," ").replace("`"," ").replace("~"," ").replace("!"," ").replace("@"," ").replace("#"," ").replace("$"," ").replace("%"," ").replace("^"," ").replace("&"," ").replace("*"," ").replace("("," ").replace(")"," ").replace("{"," ").replace("}"," ").replace("["," ").replace("]"," ").replace("-"," ").replace("_"," ").replace("+"," ").replace("="," ")
     name = name.lower()
 
-    if (name == "solo leveling" or "solo leveling"):
+    if (name == "solo leveling" or name=="solo leveling 2024"):
         buttons = [[
           InlineKeyboardButton('Solo leveling 2024', callback_data='solo_leveling')
         ]]
