@@ -23,7 +23,7 @@ async def list_users(bot, message):
             outfile.write(out)
         await message.reply_document('users.txt', caption="List Of Users")
 
-  @Client.on_message(filters.command('stats'))
+@Client.on_message(filters.command('stats'))
 async def get_stats(bot, message):
     rju = await message.reply('Fetching stats..')
     total_users = await db.total_users_count()
