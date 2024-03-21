@@ -14,8 +14,7 @@ class script(object):
     START_TXT = """Hᴇʟʟᴏ {}.
 Mʏ Nᴀᴍᴇ Is <a href=https://t.me/{}>{}</a>. ɪ ᴀᴍ ᴀ sᴘᴇᴄɪᴀʟ ʙᴏᴛ"""
 
-    HELP_TXT = """Hᴇʀᴇ ɪs Mʏ Hᴇʟᴩ.
-ᴄʟɪᴄᴋ ᴛʜɪs /support"""
+    HELP_TXT = """Hᴇʀᴇ ɪs Mʏ Hᴇʟᴩ."""
 
     ABOUT_TXT = """<b>✯ Mʏ ɴᴀᴍᴇ ɪs {} </>
 ✯ Dᴇᴠᴇʟᴏᴩᴇʀ: <a href='https://t.me/MrTG_Coder'>ᴍʀ.ʙᴏᴛ ᴛɢ</a>
