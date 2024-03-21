@@ -29,7 +29,8 @@ async def callback_handle(client, query):
             InlineKeyboardButton("season 1", callback_data="solo_seasone")
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
-
+        await query.message.edit_text(text="solo leveling_s1_e1-10", reply_markup=reply_markup, parse_mode=enums.ParseMode.HTML)
+        
     elif query.data == 'solo_seasone':
         buttons = [[
             InlineKeyboardButton("episode 1", callback_data="solo_epi_1"),
@@ -46,6 +47,7 @@ async def callback_handle(client, query):
             InlineKeyboardButton("episode 10", callback_data="solo_epi_10"),
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
+        await query.message.edit_text(text="solo leveling s1 e1-10", reply_markup=reply_markup, parse_mode=enums.ParseMode.HTML)
 
     elif query.data == 'solo_epi_1':
         user_id = query.from_user.id
