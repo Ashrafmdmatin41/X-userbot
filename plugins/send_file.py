@@ -1,6 +1,18 @@
 import pyrogram
 from pyrogram import filters, Client, enums
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, CallbackQuery
+from info import API_ID, API_HASH, BOT_TOKEN, ADMINS, LOG_CHANNEL, DATABASE_NAME, DATABASE_URI, S_GROUP, S_CHANNEL
+from Script import script
+import time
+from utils import temp
+from pyrogram.errors import FloodWait
+from database.users_db import db
+import re
+import json
+import os
+from pyrogram.errors import ChatAdminRequired, FloodWait
+import random
+import asyncio
 
 @Client.on_message(filters.text & ~filters.command(['start','users','broadcast','stats']))
 async def send_series(client, message):
