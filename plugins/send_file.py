@@ -115,10 +115,12 @@ async def callback_handle(client, query):
     elif query.data == 'solo_epi_1':
         user_id = query.from_user.id
         await client.send_document(user_id,"BQACAgQAAxkBAAMeZfxPpdlbuRgrJMpNcRGpEuYAAVm1AAJFEQACfxHgUOhCxmEDyOpqHgQ")
+        await query.answer("sᴇɴᴅᴇᴅ", show_alert=True)
           
     elif query.data == 'solo_epi_2':
         user_id = query.from_user.id 
         await client.send_document(user_id,"BQACAgQAAxkBAAMgZfxTEs1TzQRgvnrT8-48NpVqhzsAAmQSAAK1eBlRdB2soOtgpBgeBA")
+        await query.answer("sᴇɴᴅᴇᴅ", show_alert=True)
 
     elif query.data == 'solo_epi_3':
         user_id = query.from_user.id   
@@ -126,28 +128,35 @@ async def callback_handle(client, query):
           
     elif query.data == 'solo_epi_4':
         user_id = query.from_user.id  
-        await client.send_document(user_id,"BQACAgQAAxkBAAMkZfxTLXKk1S_gZB_agDSSrhvQBEcAApcUAALka6hRDc6CLe_1GdEeBA")      
+        await client.send_document(user_id,"BQACAgQAAxkBAAMkZfxTLXKk1S_gZB_agDSSrhvQBEcAApcUAALka6hRDc6CLe_1GdEeBA")  
+        await query.answer("sᴇɴᴅᴇᴅ", show_alert=True)
 
     elif query.data == 'solo_epi_5':
         user_id = query.from_user.id
         await client.send_document(user_id,"BQACAgQAAxkBAAMmZfxTOUa5oneBkqrmC3QHXOi-lsoAAvoTAALUafhR8Z9cx1d6MG8eBA")
+        await query.answer("sᴇɴᴅᴇᴅ", show_alert=True)
           
     elif query.data == 'solo_epi_6':
         user_id = query.from_user.id 
         await client.send_document(user_id,"BQACAgQAAxkBAAMoZfxTRT8cRRYCCCF8GgKGpvNX0lIAAiYSAAKfwkBS5vhn5yY2Bt8eBA")
+        await query.answer("sᴇɴᴅᴇᴅ", show_alert=True)
 
     elif query.data == 'solo_epi_7':
         user_id = query.from_user.id 
         await client.send_document(user_id,"BQACAgQAAxkBAAMqZfxTTmBJf5TF5aDbAmsj7VObfa8AAhwSAAKVOYhSd8rCjBsll98eBA")
+        await query.answer("sᴇɴᴅᴇᴅ", show_alert=True)
           
     elif query.data == 'solo_epi_8':
         user_id = query.from_user.id  
-        await client.send_document(user_id,"BQACAgQAAxkBAAMsZfxTWYFmcvmhX-Eu_zbuC4JDzGMAAt0SAAIxQCBTqO-zrtoZde4eBA")           
+        await client.send_document(user_id,"BQACAgQAAxkBAAMsZfxTWYFmcvmhX-Eu_zbuC4JDzGMAAt0SAAIxQCBTqO-zrtoZde4eBA") 
+        await query.answer("sᴇɴᴅᴇᴅ", show_alert=True)
       
     elif query.data == 'solo_epi_9':
         user_id = query.from_user.id
         await client.send_document(user_id,"BQACAgQAAxkBAAMuZfxTZFIORGsxNMK_EaflUUfnlecAAhERAAKr_2FTnyGryxdqCUAeBA")
+        await query.answer("sᴇɴᴅᴇᴅ", show_alert=True)
   
     elif query.data == 'solo_epi_10':
         user_id = query.from_user.id
-        await client.send_document(user_id,"BQACAgQAAxkBAAMwZfxTcK2BI-YCT3DP-gABQh2s4J89AALDEAACIe65U8gMsXEoxOI6HgQ")                   
+        await client.send_document(user_id,"BQACAgQAAxkBAAMwZfxTcK2BI-YCT3DP-gABQh2s4J89AALDEAACIe65U8gMsXEoxOI6HgQ")         
+        await query.answer("sᴇɴᴅᴇᴅ", show_alert=True)
