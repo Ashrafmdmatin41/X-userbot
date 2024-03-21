@@ -1,12 +1,11 @@
 from pyrogram import Client, __version__, filters
-from info import API_ID, API_HASH, BOT_TOKEN, PORT, ADMINS, LOG_CHANNEL, F_SUB
+from info import API_ID, API_HASH, BOT_TOKEN, ADMINS, LOG_CHANNEL, F_SUB
 import os, math, logging, pytz
 from datetime import date, datetime 
 from pytz import timezone
 import logging.config
 from pyrogram.errors import BadRequest, Unauthorized
 from typing import Union, Optional, AsyncGenerator
-from plugins import web_server 
 import pytz
 import aiohttp
 from aiohttp import web
