@@ -320,9 +320,10 @@ async def unblock_handler(client: user, message: Message):
 @user.on_message(filters.command("close",prefixes=".") & filters.me)
 async def close_handler(client: user, message:Message):
    msg_id = message.reply_to_message_id
-   await client.delete_messages(
+   id=await client.delete_messages(
         chat_id=message.chat.id,
         message_ids=msg_id
    )
-     
+   await asyncio.sleep(4)
+   await id.delete()
     
