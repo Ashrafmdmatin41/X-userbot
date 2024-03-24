@@ -30,16 +30,8 @@ class Bot(Client):
         )
     async def start(self):
         await super().start()
-        me = await self.get_me()
-        temp.ME = me.id
-        temp.U_NAME = me.username
-        temp.B_NAME = me.first_name
-        self.username = '@' + me.username
-        self.f_channel = F_SUB
         logging.info(f"{me.first_name} with for Pyrogram v{__version__} (Layer {layer}) started on {me.username}.")
-        app = web.AppRunner(await web_server())
-        await app.setup()
-        await web.TCPSite(app, "0.0.0.0", 8080).start()
+
         logger.info("Running...")
         print(f"{me.first_name} | @{me.username} started...")
 
