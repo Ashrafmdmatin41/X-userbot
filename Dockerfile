@@ -3,7 +3,6 @@ RUN apt update && apt upgrade -y
 RUN apt install git -y
 RUN  pip install --upgrade pip
 
-RUN pip install git+https://github.com/MrTG-CodeBot/pyrogram.git
 RUN pip install ffmpeg
 RUN pip install spotipy
 RUN pip install yt_dlp
