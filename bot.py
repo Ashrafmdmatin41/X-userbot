@@ -4,16 +4,12 @@ import os, math, logging, pytz
 from datetime import date, datetime 
 from pytz import timezone
 import logging.config
-from plugins import web_server
 from pyrogram.errors import BadRequest, Unauthorized
 from typing import Union, Optional, AsyncGenerator
 import pytz
 import aiohttp
-from aiohttp import web
-from utils import temp
 from pyrogram.raw.all import layer
 from pyrogram import types
-from Script import script 
 import aiohttp
 
 
