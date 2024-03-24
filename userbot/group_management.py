@@ -20,7 +20,7 @@ def format_uptime(seconds):
 
 @user.on_message(filters.command("help",prefixes="."))
 async def help_handler(client: user, message: Message):
-    help_text = f"ʜᴇʏ {message.from_user.mention}\n\n ʜᴇʟᴘ ᴄᴏᴍᴍᴀɴᴅs ᴀɴᴅ ʜᴏᴡ ᴛᴏ ᴜsᴇ\n\n<code>.alive</code> = Check the userbot is alive or not\n<code>.help</code> = show the full command and description\n<code>.uptime</code> = The measure of how long a bot is on and available.\n<code>.ping</code>\n<code>.approve</code> = Approve all pending join requests in a chat.\n<code>.promote</code> = Promote chat member to admin and Set a custom title (rank) to an administrator of a supergroup.(Eg:- .promote co-admin)\n<code>.mute</code> = mute a user in a group.\n<code>.unmute</code>= unmute a user in a group \n<code>.pin</code> = Pin a message in a group\n<code>.upin</code> = UnPin a message in a group\n<code>.unpin_all</code> = UnPin all message in a group\n<code>.group_close</code> = Only group admin can send messages\n<code>.group_open</code> = Everyone can send message\n<code>.new_profile</code> = First resize photo to sqare shape and then send the command to reply the photo\n<code>.leave</code> = You can leave from a group or channel using .leave command\n<code>.id</code> = to get the user id\n<code>.set_pic</code> = Set a new photo for group\n<code>.close</code> = reply to a message to delete or close the data\n"
+    help_text = f"ʜᴇʏ {message.from_user.mention}\n\n ʜᴇʟᴘ ᴄᴏᴍᴍᴀɴᴅs ᴀɴᴅ ʜᴏᴡ ᴛᴏ ᴜsᴇ\n\n<code>.alive</code> = Check the userbot is alive or not\n<code>.help</code> = show the full command and description\n<code>.uptime</code> = The measure of how long a bot is on and available.\n<code>.ping</code> = Helps you to know your ping \n\n<code>.approve_all</code> = Approve all pending join requests in a chat.\n<code>.promote</code> = Promote chat member to admin and Set a custom title (rank) to an administrator of a supergroup.(Eg:- .promote co-admin)\n<code>.mute</code> = mute a user in a group.\n<code>.unmute</code>= unmute a user in a group \n<code>.pin</code> = Pin a message in a group\n<code>.upin</code> = UnPin a message in a group\n<code>.unpin_all</code> = UnPin all message in a group\n<code>.group_close</code> = Only group admin can send messages\n<code>.group_open</code> = Everyone can send message\n<code>.new_profile</code> = First resize photo to sqare shape and then send the command to reply the photo\n<code>.leave</code> = You can leave from a group or channel using .leave command\n<code>.id</code> = to get the user id\n<code>.set_pic</code> = Set a new photo for group\n<code>.close</code> = reply to a message to delete or close the data\n"
     await message.reply_text(help_text)
 
 # uptime
@@ -48,7 +48,7 @@ async def ping_handler(client: user, message: Message):
 
 #pending approve in group/channel
 
-@user.on_message(filters.command("approve",prefixes=".") & ~filters.private)
+@user.on_message(filters.command("approve_all",prefixes=".") & ~filters.private)
 async def approve_handler(client: user, message: Message):
   try:
     id = message.chat.id
