@@ -1,4 +1,4 @@
-from pyrogram import Client, filters, enums
+from pyrogram import Client as user, filters, enums
 from pyrogram.types import Message, ChatPermissions
 from datetime import datetime
 import os
