@@ -1,5 +1,5 @@
 from pyrogram import Client, __version__, filters
-from info import API_ID, API_HASH, BOT_TOKEN, ADMINS, LOG_CHANNEL, F_SUB
+from info import API_ID, API_HASH, SESSION
 import os, math, logging, pytz
 from datetime import date, datetime 
 from pytz import timezone
@@ -21,16 +21,15 @@ logging.config.fileConfig("logging.conf")
 logging.getLogger().setLevel(logging.INFO)
 logger = logging.getLogger(__name__)
 
-class Bot(Client):
-
+class Bot(user):
     def __init__(self):
         super().__init__(
-            name="simple-bot",
+            name="user-bot",
             api_id=API_ID,
             api_hash=API_HASH,
-            bot_token=BOT_TOKEN,
+            session_string=SESSION,
             workers=50,
-            plugins={"root": "plugins"},
+            plugins={"root": "userbot"},
             sleep_threshold=5,
         )
     async def start(self):
