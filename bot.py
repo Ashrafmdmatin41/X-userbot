@@ -46,32 +46,6 @@ class Bot(user):
         await web.TCPSite(app, "0.0.0.0", 8080).start()
         logger.info("Running...")
         print(f"{me.first_name} | @{me.username} started...")
-        tz = pytz.timezone('Asia/Kolkata')
-        today = date.today()
-        now = datetime.now(tz)
-        time = now.strftime("%H:%M:%S %p")
-         try:
-            link = await self.export_chat_invite_link(F_SUB)                  
-            self.invitelink = link
-         except Exception as e:
-            logging.warning(e)
-            logging.warning("Mᴀᴋᴇ Sᴜʀᴇ Bᴏᴛ ᴀᴅᴍɪɴ ɪɴ ғᴏʀᴄᴇ sᴜʙ ᴄʜᴀɴɴᴇʟ")             
-            self.f_channel = None
- 
-    async def stop(self, *args):
-       await super().stop()      
-       print("Bot Restarting...")
-
-async def iter_messages(self, chat_id: Union[int, str], limit: int, offset: int = 0) -> Optional[AsyncGenerator["types.Message", None]]:                       
-        current = offset
-        while True:
-            new_diff = min(200, limit - current)
-            if new_diff <= 0:
-                return
-            messages = await self.get_messages(chat_id, list(range(current, current+new_diff+1)))
-            for message in messages:
-                yield message
-                current += 1
 
 
 if __name__ == "__main__":
