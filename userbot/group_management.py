@@ -333,12 +333,11 @@ async def unblock_handler(client: user, message: Message):
 async def close_handler(client: user, message:Message):
  try:
    msg_id = message.reply_to_message_id
-   id=await client.delete_messages(
+   await client.delete_messages(
         chat_id=message.chat.id,
         message_ids=msg_id
    )
-   await asyncio.sleep(4)
-   await id.delete()
+   await message.delete()
  except Exception as e:
    await message.reply_text(f"{e}")
     
