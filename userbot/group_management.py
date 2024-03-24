@@ -331,6 +331,7 @@ async def unblock_handler(client: user, message: Message):
 # CLose==Delete a single message()
 @user.on_message(filters.command("close",prefixes=".") & filters.me)
 async def close_handler(client: user, message:Message):
+ try:
    msg_id = message.reply_to_message_id
    id=await client.delete_messages(
         chat_id=message.chat.id,
@@ -338,4 +339,6 @@ async def close_handler(client: user, message:Message):
    )
    await asyncio.sleep(4)
    await id.delete()
+ except Exception as e:
+   await message.reply_text(f"{e}")
     
