@@ -30,10 +30,10 @@ class Bot(Client):
         )
     async def start(self):
         await super().start()
-        logging.info(f"{me.first_name} with for Pyrogram v{__version__} (Layer {layer}) started on {me.username}.")
+        logging.info(f"for Pyrogram v{__version__} (Layer {layer}) started.")
 
         logger.info("Running...")
-        print(f"{me.first_name} | @{me.username} started...")
+        print(f"started...")
 
 
 if __name__ == "__main__":
