@@ -301,3 +301,21 @@ async def mention_handler(client: user, message: Message):
             f"Unfortunately, @MrTG_Coder is currently unavailable. They will respond as soon as they are online.")
     else:
         pass
+
+# Block a user(only can use it)
+
+@user.on_message(filters.command("block",prefixes=".") & filters.me)
+async def block_handler(client: user, message:Message):
+     user_id = message.reply_to_message.from_user.id
+     await client.block_user(user_id)
+
+# unblock the blocked user(only can use it)
+
+@user.on_message(filters.command("unblock",prefixes=".") & filters.me)
+async def unblock_handler(client: user, message: Message):
+     user_id = message.reply_to_message.from_user.id
+     await client.block_user(user_id)
+
+
+     
+    
