@@ -174,6 +174,7 @@ async def unpinall_handler(client: user, message: Message):
 
 @user.on_message(filters.command("group_close",prefixes=".") & filters.group)
 async def group_close_handler(client: user, message: Message):
+  try:
     user = await client.get_chat_member(message.chat.id , message.from_user.id)
     if user.status not in [enums.ChatMemberStatus.OWNER , enums.ChatMemberStatus.ADMINISTRATOR]:
         raise PermissionError("You are not allowed to use this command")
@@ -188,11 +189,14 @@ async def group_close_handler(client: user, message: Message):
         can_pin_messages=False
     ))
     await message.reply_text("This group is closed")
+  except Exception as e:
+    await message.reply_text(f"{e}")
 
 # group open(only admins can use this command)
 
 @user.on_message(filters.command("group_open",prefixes=".") & filters.group)
 async def group_open_handler(client: user, message: Message):
+ try:
     user = await client.get_chat_member(message.chat.id , message.from_user.id)
     if user.status not in [enums.ChatMemberStatus.OWNER , enums.ChatMemberStatus.ADMINISTRATOR]:
         raise PermissionError("You are not allowed to use this command")
@@ -207,6 +211,8 @@ async def group_open_handler(client: user, message: Message):
         can_pin_messages=True
     ))
     await message.reply_text("This group is opened")
+ except Exception as e:
+    await message.reply_text(f"{e}")
 
 # adding new profile for ur account(only can use it)
 
@@ -228,10 +234,13 @@ async def new_pic_handler(client: user, message: Message):
 
 @user.on_message(filters.command("leave",prefixes=".") & filters.me)
 async def leave_handler(client: user, message: Message):
+ try:
     id = message.chat.id
     group_name = message.chat.title
     await client.leave_chat(id)
     await client.send_message("me", text=f"Leaved from {group_name} successful")
+ except Exception as e:
+    await message.reply_text(f"{e}")
 
 # get the user id(everyone can use it)
 
@@ -278,6 +287,7 @@ async def id_handler(client:user, message:Message):
 
 @user.on_message(filters.command("set_pic",prefixes=".") & filters.group)
 async def set_pic_handler(client: user, message: Message):
+ try:
     user = await client.get_chat_member(message.chat.id , message.from_user.id)
     if user.status not in [enums.ChatMemberStatus.OWNER , enums.ChatMemberStatus.ADMINISTRATOR]:
         raise PermissionError("You are not allowed to use this command")
@@ -287,6 +297,8 @@ async def set_pic_handler(client: user, message: Message):
          await message.reply_text(f"New profile photo has been set for this group")
     elif not message.reply_to_message.photo:
         await message.reply_text("please reply to photo")
+ except Exception as e:
+        await message.reply_text(f"{e}")
 
 # if anyone mentioned in a group it will automatically send message.
 
