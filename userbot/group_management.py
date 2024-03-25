@@ -302,7 +302,7 @@ async def set_pic_handler(client: user, message: Message):
 
 # if anyone mentioned in a group it will automatically send message.
 
-@user.on_message(filters.group)
+@user.on_message(filters.group & ~filters.me)
 async def mention_handler(client: user, message: Message):
     if message.text is None:
         return
