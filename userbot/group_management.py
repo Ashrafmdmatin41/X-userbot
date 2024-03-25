@@ -329,10 +329,13 @@ async def unblock_handler(client: user, message: Message):
      await client.block_user(user_id)
 
 # CLose==Delete a single message(only can use it)
-@user.on_message(filters.command("close",prefixes=".") & filters.me)
+@user.on_message(filters.command("close",prefixes="."))
 async def close_handler(client: user, message:Message):
  try:
    msg_id = message.reply_to_message_id
+   user = await client.get_chat_member(message.chat.id , message.from_user.id)
+   if user.status not in [enums.ChatMemberStatus.OWNER , enums.ChatMemberStatus.ADMINISTRATOR]:
+        raise PermissionError("You are not allowed to use this command")
    await client.delete_messages(
         chat_id=message.chat.id,
         message_ids=msg_id
