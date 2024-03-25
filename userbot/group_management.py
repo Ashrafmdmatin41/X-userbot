@@ -338,6 +338,7 @@ async def set_title_handler(client: user, message: Message):
         raise PermissionError("You are not allowed to use this command")      
     chat_id = message.chat.id
     title = message.text.split()[1::]
+    title = " ".join(title)
     await client.set_chat_title(chat_id, f"title")
     await message.reply_text("Title has been changed")
  except Exception as e:
