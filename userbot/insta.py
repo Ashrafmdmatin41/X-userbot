@@ -16,7 +16,7 @@ headers = {
     "Connection": "keep-alive",
     "Referer": "https://saveig.app/en",
 }
-@Client.on_message(filters.regex(r'https?://.*instagram[^\s]+') & filters.incoming)
+@Client.on_message(filters.regex(r'https?://.*instagram[^\s]+'))
 async def link_handler(client, message):
     link = message.matches[0].group(0)
     global headers
