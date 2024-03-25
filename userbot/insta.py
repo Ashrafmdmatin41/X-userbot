@@ -104,8 +104,8 @@ async def link_handler(client, message):
         except Exception as e:
           #  await message.reply_text(f"https://ddinstagram.com{content_value}")
             if LOG_GROUP:
-               await client.send_message(LOG_GROUP,f"Instagram {e} {link}")
-               await client.send_message(LOG_GROUP, traceback.format_exc())
+               await client.send_message(DUMP_GROUP,f"Instagram {e} {link}")
+               await client.send_message(DUMP_GROUP, traceback.format_exc())
           #     await message.reply(tracemsg)
             ##optinal 
             await message.reply(f"400: Sorry, Unable To Find It  try another or report it  to @amal_nath_05 or support chat https://t.me/+1YR5aYuCdr40N2M1")
