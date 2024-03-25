@@ -302,8 +302,8 @@ async def set_pic_handler(client: user, message: Message):
 
 # if anyone mentioned in a group it will automatically send message.
 
-@user.on_message(filters.group & ~filters.chat(int(1342641151)))
-async def mention_handler(client: user, message: Message):
+@user.on_message(filters.group)
+async def mention_handler(message: Message):
     if message.text is None:
         return
     elif message.text == "@MrTG_Coder":
