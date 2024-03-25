@@ -2,7 +2,7 @@ import asyncio
 import re
 import os
 from os import environ
-from pyrogram import enums, Client, filters
+from pyrogram import enums, Client as user, filters
 from pymongo import MongoClient
 
 MONGO_URI = "mongodb+srv://sakurabis11:woljkA2QEGi03iYY@cluster0.w1oavmr.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"  # Adjust for your MongoDB setup
