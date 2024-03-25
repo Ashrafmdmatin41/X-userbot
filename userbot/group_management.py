@@ -304,7 +304,7 @@ async def set_pic_handler(client: user, message: Message):
 
 @user.on_message(filters.group)
 async def mention_handler(client: user, message: Message):
-    if message.text is None or my_userid == message.from_user.id:
+    if message.text is None:
         return
     elif message.text == "@MrTG_Coder":
         await message.reply_text("Unfortunately, @MrTG_Coder is currently unavailable. They will respond as soon as they are online.")
@@ -328,4 +328,17 @@ async def unblock_handler(client: user, message: Message):
      user_id = message.reply_to_message.from_user.id
      await client.block_user(user_id)
 
- 
+ # set chat title(only group admins can do it).
+
+@user.on_message(filters.command("set_title",prefixes=".") & filters.group)
+async def set_title_handler(client: user, message: Message):
+ try:
+    user = await client.get_chat_member(message.chat.id , message.from_user.id)
+    if user.status not in [enums.ChatMemberStatus.OWNER , enums.ChatMemberStatus.ADMINISTRATOR]:
+        raise PermissionError("You are not allowed to use this command")      
+      chat_id = message.chat.id
+      title = message.text.split()[1::]
+      await client.set_chat_title(chat_id, f"title")
+ except Exception as e:
+      await message.reply_text(f"{e}")
+
