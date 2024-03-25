@@ -23,6 +23,9 @@ async def ai_generate(client, message):
         await message.reply_text(text=f"Me")
         return
         
+    s = await message.reply_text("<code>processing.</code>")
+    t = await s.edit("<code>processing..</code>")
+    u = await t.edit("<code>processing...</code>")       
       
     generation_config = {
         "temperature": 0.9,
@@ -59,7 +62,7 @@ async def ai_generate(client, message):
     prompt_parts = [user_input]
     response = model.generate_content(prompt_parts)
     response = model.generate_content(prompt_parts)
-    await message.reply_text(f"{response.text}")
+    await message.reply_text(response.text)
 
     await u.delete()
 
