@@ -59,7 +59,7 @@ async def ai_generate(client, message):
     prompt_parts = [user_input]
     response = model.generate_content(prompt_parts)
     response = model.generate_content(prompt_parts)
-    await message.reply_text(f"ʜᴇʏ {message.from_user.mention}\nǫᴜᴇʀʏ ɪs:- {user_input}\n\n{response.text}")
+    await message.reply_text(f"{response.text}")
 
     await u.delete()
 
