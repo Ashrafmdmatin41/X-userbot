@@ -336,9 +336,9 @@ async def set_title_handler(client: user, message: Message):
     user = await client.get_chat_member(message.chat.id , message.from_user.id)
     if user.status not in [enums.ChatMemberStatus.OWNER , enums.ChatMemberStatus.ADMINISTRATOR]:
         raise PermissionError("You are not allowed to use this command")      
-      chat_id = message.chat.id
-      title = message.text.split()[1::]
-      await client.set_chat_title(chat_id, f"title")
+    chat_id = message.chat.id
+    title = message.text.split()[1::]
+    await client.set_chat_title(chat_id, f"title")
  except Exception as e:
-      await message.reply_text(f"{e}")
+    await message.reply_text(f"{e}")
 
