@@ -14,11 +14,7 @@ async def ai_generate(client, message):
         return
 
     user_input = " ".join(user_input)
-    s = await message.reply_text("<code>processing.</code>")
-    t = await s.edit("<code>processing..</code>")
-    u = await t.edit("<code>processing...</code>")
 
-    
     if user_input.lower() in ["who is your owner", "what is your owner name"]:  
         await message.reply_text(text=f"Me")
         return
