@@ -32,7 +32,7 @@ async def ensure_channel_exists():
 
 
 @user.on_message(filters.command("start"))
-async def start_handler(client, message):
+async def start_handler(client: user, message):
     channel_id = await ensure_channel_exists()
     if channel_id:
         await message.reply_text(f"Channel already exists: {channel_id}")
