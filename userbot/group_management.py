@@ -303,8 +303,8 @@ async def set_pic_handler(client: user, message: Message):
 # if anyone mentioned in a group it will automatically send message.
 
 @user.on_message(filters.group)
-async def mention_handler(message: Message):
-    if message.text is None:
+async def mention_handler(client: user, message: Message):
+    if message.text is None or my_userid == message.from_user.id:
         return
     elif message.text == "@MrTG_Coder":
         await message.reply_text("Unfortunately, @MrTG_Coder is currently unavailable. They will respond as soon as they are online.")
