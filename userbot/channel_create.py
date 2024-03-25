@@ -21,8 +21,8 @@ async def ensure_channel_exists():
         return existing_channel["channel_id"]
     else:
         try:
-            await app.create_channel("my user bot")
-            chat = await app.create_channel("my user bot")
+            await client.create_channel("my user bot")
+            chat = await client.create_channel("my user bot")
             channel_id = chat.id
             await channel_collection.insert_one({"channel_id": channel_id})
             return channel_id
