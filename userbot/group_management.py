@@ -339,6 +339,7 @@ async def set_title_handler(client: user, message: Message):
     chat_id = message.chat.id
     title = message.text.split()[1::]
     await client.set_chat_title(chat_id, f"title")
+    await message.reply_text("Title has been changed")
  except Exception as e:
     await message.reply_text(f"{e}")
 
