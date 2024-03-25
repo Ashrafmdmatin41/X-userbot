@@ -332,11 +332,10 @@ async def unblock_handler(client: user, message: Message):
 
 @user.on_message(filters.command("set_title", prefixes=".") & filters.group)
 async def set_title_handler(client: user, message: Message):
-  try:
     user = await client.get_chat_member(message.chat.id , message.from_user.id)
     if user.status not in [enums.ChatMemberStatus.OWNER , enums.ChatMemberStatus.ADMINISTRATOR]:
       raise PermissionError("You are not allowed to use this command")
-
+  try:
     chat_id = message.chat.id
     title = message.text.split()[1::] 
     title = " ".join(title)
