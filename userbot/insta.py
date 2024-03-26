@@ -19,7 +19,7 @@ headers = {
 }
 @Client.on_message(filters.regex(r'https?://.*instagram[^\s]+') & filters.private & filters.group)
 async def link_handler(client, message):
-    link = message.matches[0].group(0)
+    link = message.text
     global headers
     try:
         m = await message.reply_sticker("CAACAgUAAxkBAAITAmWEcdiJs9U2WtZXtWJlqVaI8diEAAIBAAPBJDExTOWVairA1m8eBA")
