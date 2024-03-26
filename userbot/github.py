@@ -2,7 +2,7 @@ from pyrogram import Client, filters
 import requests
 
 
-@Client.on_message(filters.command("repo"))
+@Client.on_message(filters.command("repo") & filters.private & filters.group)
 async def repo(client, message):
     if len(message.command) > 1:
         query = ' '.join(message.command[1:])
@@ -17,7 +17,7 @@ async def repo(client, message):
                         f"**✨ sᴛᴀʀs:** <code>{repo['stargazers_count']}</code>\n" \
                         f"**📡 ғᴏʀᴋs:** <code>{repo['forks_count']}</code>"
 
-                await message.reply_text(reply) 
+                await message.reply_text(reply, disable_web_page_preview=True) 
             else:
                 await message.reply_text("ɴᴏ ʀᴇsᴜʟᴛ ғᴏᴜɴᴅ.")
         else:
