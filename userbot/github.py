@@ -17,7 +17,7 @@ async def repo(client, message):
                         f"**📡 ғᴏʀᴋs:** <code>{repo['forks_count']}</code>"
 
                 # Await the coroutine here
-                await message.reply_text(reply)
+                await message.reply_text(reply, disable_web_page_previews=False)
             else:
                 await message.reply_text("ɴᴏ ʀᴇsᴜʟᴛ ғᴏᴜɴᴅ.")
         else:
