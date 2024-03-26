@@ -329,20 +329,8 @@ async def unblock_handler(client: user, message: Message):
      user_id = message.reply_to_message.from_user.id
      await client.block_user(user_id)
 
- # set chat title(only group admins can do it).
 
-@user.on_message(filters.command("set_title", prefixes=".") & filters.group)
-async def set_title_handler(client: user, message: Message):
-    user = await client.get_chat_member(message.chat.id , message.from_user.id)
-    if user.status not in [enums.ChatMemberStatus.OWNER , enums.ChatMemberStatus.ADMINISTRATOR]:
-      raise PermissionError("You are not allowed to use this command")
-    try:
-      chat_id = message.chat.id
-      title = message.text.split()[1::] 
-      title = " ".join(title)
-      await client.set_chat_title(chat_id, title)
-      await message.reply_text("Title has been changed")
-    except Exception as e:
-      await message.reply_text(f"{e}")
+
+
 
 
