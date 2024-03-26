@@ -1,6 +1,6 @@
 from pyrogram import Client, filters
 import requests
-from info import REQUESTED_CHANNEL
+
 
 @Client.on_message(filters.command("repo"))
 async def repo(client, message):
