@@ -8,7 +8,9 @@ from pyrogram.errors import BadRequest, Unauthorized
 from typing import Union, Optional, AsyncGenerator
 import pytz
 import aiohttp
+import motor.motor_asyncio
 import pymongo
+from pymongo import MongoClient
 from pyrogram.errors import ChatForbidden
 from pyrogram.raw.all import layer
 from pyrogram import types
