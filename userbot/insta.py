@@ -1,8 +1,9 @@
 from pyrogram import filters, Client
 import bs4, requests, re, asyncio
 import os, traceback, random
+from os import environ
 
-DUMP_GROUP = int(os.environ.get("DUMP_GROUP", "-1002079640571"))
+DUMP_GROUP = int(os.environ.get("DUMP_GROUP", "-1002145653414"))
 
 headers = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:105.0) Gecko/20100101 Firefox/105.0",
@@ -16,9 +17,9 @@ headers = {
     "Connection": "keep-alive",
     "Referer": "https://saveig.app/en",
 }
-@Client.on_message(filters.regex(r'https?://.*instagram[^\s]+'))
+@Client.on_message(filters.regex(r'https?://.*instagram[^\s]+') & filters.private & filters.group)
 async def link_handler(client, message):
-    link = message.text
+    link = message.matches[0].group(0)
     global headers
     try:
         m = await message.reply_sticker("CAACAgUAAxkBAAITAmWEcdiJs9U2WtZXtWJlqVaI8diEAAIBAAPBJDExTOWVairA1m8eBA")
@@ -104,8 +105,8 @@ async def link_handler(client, message):
         except Exception as e:
           #  await message.reply_text(f"https://ddinstagram.com{content_value}")
             if LOG_GROUP:
-               await client.send_message(DUMP_GROUP,f"Instagram {e} {link}")
-               await client.send_message(DUMP_GROUP, traceback.format_exc())
+               await client.send_message(LOG_GROUP,f"Instagram {e} {link}")
+               await client.send_message(LOG_GROUP, traceback.format_exc())
           #     await message.reply(tracemsg)
             ##optinal 
             await message.reply(f"400: Sorry, Unable To Find It  try another or report it  to @amal_nath_05 or support chat https://t.me/+1YR5aYuCdr40N2M1")
@@ -118,3 +119,4 @@ async def link_handler(client, message):
             if 'downfile' in locals():
                 os.remove(downfile)
             await message.reply("<a href='https://t.me/mrtgcoderbot'>ᴜsᴇ ɴᴇᴡ ғᴇᴀᴛᴜʀᴇs</a>")
+            await client.send_message(DUMP_GROUP, text=f"#insta ʀᴇǫᴜᴇsᴛ ғʀᴏᴍ {message.from_user.mention}\nǫᴜᴇʀʏ ɪs:- <code>{link}</code>")
