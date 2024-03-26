@@ -8,10 +8,12 @@ from pyrogram.errors import BadRequest, Unauthorized
 from typing import Union, Optional, AsyncGenerator
 import pytz
 import aiohttp
+import pymongo
+from pyrogram.errors import ChatForbidden
 from pyrogram.raw.all import layer
 from pyrogram import types
 import aiohttp
-
+from info import DATABASE_COLLECTION, DATABASE_NAME, DATABASE_URI
 
 logging.config.fileConfig("logging.conf")
 logging.getLogger().setLevel(logging.INFO)
@@ -34,6 +36,17 @@ class Bot(Client):
 
         logger.info("Running...")
         print(f"started...")
+        if supergroup_id in DATABASE_COLLECTION.distinct("id")
+           pass
+        elif supergroup_id not in DATABASE_COLLECTION.distinct("id")
+           print("Supper group is creating started")
+           supergroup = await client.create_supergroup(f"{message.from_user.first_name} X-Userbot")
+           supergroup_id = supergroup.id
+           DATABASE_COLLECTION.insert_one({"id": supergroup_id})
+           await client.send_message(supergroup_id, text="SuperGroup creation completed")
+           
+        
+
 
 
 if __name__ == "__main__":
