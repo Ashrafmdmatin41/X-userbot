@@ -39,13 +39,13 @@ class Bot(Client):
         logger.info("Running...")
         print(f"started...")
         supergroup_id = None
-        if supergroup_id not in DATABASE_COLLECTION.find_one("id"):
+        if supergroup_id not in DATABASE_COLLECTION.find_one({'id':int(id)}):
            print("Supper group is creating started")
            supergroup = await client.create_supergroup(f"{message.from_user.first_name} X-Userbot")
            supergroup_id = supergroup.id
            DATABASE_COLLECTION.insert_one({"id": supergroup_id})
            await client.send_message(supergroup_id, text="SuperGroup creation completed")
-        elif supergroup_id in DATABASE_COLLECTION.find_one("id"):
+        elif supergroup_id in DATABASE_COLLECTION.find_one({'id':int(id)}):
            pass
 
            
