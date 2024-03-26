@@ -2,7 +2,7 @@ from pyrogram import Client, filters
 import requests
 
 
-@Client.on_message(filters.command("repo") & filters.private & filters.group)
+@Client.on_message(filters.command("repo") & ~filters.channel)
 async def repo(client, message):
     if len(message.command) > 1:
         query = ' '.join(message.command[1:])
