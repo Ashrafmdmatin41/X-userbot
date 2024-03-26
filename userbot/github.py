@@ -20,7 +20,7 @@ async def repo(client, message):
                        f"**✨ Stars:** <code>{repo['stargazers_count']}</code>\n" \
                        f"** Forks:** <code>{repo['forks_count']}</code>"
 
-                await message.reply_text(reply, disable_web_page_previews=False)
+                await message.reply_text(f"{reply}", disable_web_page_previews=False)
             else:
                 await message.reply_text("No results found for your query.")
 
