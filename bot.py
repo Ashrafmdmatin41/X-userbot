@@ -12,7 +12,6 @@ from pyrogram.errors import ChatForbidden
 from pyrogram.raw.all import layer
 from pyrogram import types
 import aiohttp
-from info import DATABASE_COLLECTION, DATABASE_NAME, DATABASE_URI
 
 logging.config.fileConfig("logging.conf")
 logging.getLogger().setLevel(logging.INFO)
