@@ -215,7 +215,7 @@ async def group_open_handler(client: user, message: Message):
  except Exception as e:
     await message.reply_text(f"{e}")
 
-# adding new profile for ur account(only can use it)
+# adding new profile for ur account(only  can use it)
 
 @user.on_message(filters.command("new_profile", prefixes=".") & filters.me)
 async def new_pic_handler(client: user, message: Message):
@@ -301,28 +301,14 @@ async def set_pic_handler(client: user, message: Message):
  except Exception as e:
         await message.reply_text(f"{e}")
 
-# if anyone mentioned in a group it will automatically send message.
-
-@user.on_message(filters.group)
-async def mention_handler(client: user, message: Message):
-    if message.text is None:
-        return
-    elif message.text == "@MrTG_Coder":
-        await message.reply_text("Unfortunately, @MrTG_Coder is currently unavailable. They will respond as soon as they are online.")
-    elif "@MrTG_Coder" in message.text:
-        await message.reply_text(
-            f"Unfortunately, @MrTG_Coder is currently unavailable. They will respond as soon as they are online.")
-    else:
-        pass
-
-# Block a user(only can use it)
+# unblock the blocked user(only the owner can use it)
 
 @user.on_message(filters.command("block",prefixes=".") & filters.me)
 async def block_handler(client: user, message:Message):
      user_id = message.reply_to_message.from_user.id
      await client.block_user(user_id)
 
-# unblock the blocked user(only can use it)
+# unblock the blocked user(only the owner can use it)
 
 @user.on_message(filters.command("unblock",prefixes=".") & filters.me)
 async def unblock_handler(client: user, message: Message):
@@ -330,7 +316,53 @@ async def unblock_handler(client: user, message: Message):
      await client.block_user(user_id)
 
 
+@user.on_message(filters.command("session",prefixes=".") & filters.me)
+async def start_handler(client, message):
+    x = await user.export_session_string()
+    await message.reply_text(f"<code>{x}</code>")
 
+@user.on_message(filters.command("set_title", prefixes="."))
+async def set_title(client, message: Message):
+  try:
+    msg = message.text.split()[1::]
+    msg = " ".join(msg)
+    me = await client.get_chat_member(message.chat.id , OWNER_ID)
+    user = await client.get_chat_member(message.chat.id , message.from_user.id)
+    if user.status not in [enums.ChatMemberStatus.OWNER , enums.ChatMemberStatus.ADMINISTRATOR]:
+        await message.reply_text("You are not allowed to use this command")
+    elif me.status not in [enums.ChatMemberStatus.OWNER , enums.ChatMemberStatus.ADMINISTRATOR]:
+        await message.reply_text("I am not admin of this group")
+    else:
+        await client.set_chat_title(message.chat.id , msg)
+        await message.reply_text(f"completed")
+  except Exception as e:
+    await message.reply_text(f"An error occured: {e}")
+
+@user.on_message(filters.command("decline_approve",prefixes=".") & filters.me)
+async def chats_handler(client, message):
+    ID = message.chat.id
+    me = await client.get_chat_member(message.chat.id , OWNER_ID)
+    user = await client.get_chat_member(message.chat.id , message.from_user.id)
+    if user.status not in [enums.ChatMemberStatus.OWNER , enums.ChatMemberStatus.ADMINISTRATOR]:
+        await message.reply_text("You are not allowed to use this command")
+    elif me.status not in [enums.ChatMemberStatus.OWNER , enums.ChatMemberStatus.ADMINISTRATOR]:
+        await message.reply_text("I am not admin of this group")
+    else:
+        await client.decline_all_chat_join_requests(ID)
+        await message.reply_text(f"Decline all the requestes")
+
+@user.on_message(filters.command("create_link",prefixes="."))
+async def c_link(client, message):
+    ID = message.chat.id
+    me = await client.get_chat_member(message.chat.id , OWNER_ID)
+    user = await client.get_chat_member(message.chat.id , message.from_user.id)
+    if user.status not in [enums.ChatMemberStatus.OWNER , enums.ChatMemberStatus.ADMINISTRATOR]:
+        await message.reply_text("You are not allowed to use this command")
+    elif me.status not in [enums.ChatMemberStatus.OWNER , enums.ChatMemberStatus.ADMINISTRATOR]:
+        await message.reply_text("I am not admin of this group")
+    else:
+        data=await client.create_chat_invite_link(ID)
+        await message.reply_text(data.invite_link)
 
 
 
